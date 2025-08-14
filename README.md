@@ -1,13 +1,12 @@
-# xampp-ssl-localhost
-Validan HTTPS localhost SSL sertifikat sa SAN poljem (localhost + 127.0.0.1) za XAMPP
+# XAMPP Localhost HTTPS SSL Certificate with SAN Support
 
-# xampp-ssl-localhost
+🚀 Secure your XAMPP localhost with a ready-to-use HTTPS SSL certificate (SAN: localhost & 127.0.0.1) – no browser warnings!
 
 ---
 
 ## 📜 Opis (Srpski)
 
-Ovaj repozitorijum sadrži validan **HTTPS localhost SSL sertifikat** sa pravilno definisanim **Subject Alternative Name (SAN)** poljem, koji uključuje:
+Ovaj repozitorijum sadrži prekonfigurisani **HTTPS localhost SSL sertifikat** sa pravilno definisanim **Subject Alternative Name (SAN)** poljem, koji uključuje:
 
 - `localhost`
 - `127.0.0.1`
@@ -15,9 +14,9 @@ Ovaj repozitorijum sadrži validan **HTTPS localhost SSL sertifikat** sa praviln
 Konfigurisano i testirano za **XAMPP** okruženje na Windows-u.
 
 ### ✅ Funkcionalnosti
-- Generisani `.crt`, `.csr` i `.key` fajlovi spremni za upotrebu
+- Spremni `.crt`, `.csr` i `.key` fajlovi
 - Kompatibilnost sa modernim pregledačima (Chrome, Firefox, Edge…)
-- Stabilna lokalna HTTPS veza za razvoj
+- Bez upozorenja o nesigurnoj konekciji na `https://localhost`
 
 ### 📂 Struktura fajlova
 ssl.crt/ -> Sertifikat (.crt)  
@@ -26,12 +25,12 @@ ssl.key/ -> Privatni ključ (.key)
 
 ### ⚙️ Instalacija
 1. Kopiraj `ssl.crt`, `ssl.csr` i `ssl.key` u `C:\xampp\apache\conf\`
-2. U fajlu `httpd-ssl.conf` ažuriraj putanje:
+2. U `httpd-ssl.conf` ažuriraj putanje:
    ```apache
    SSLCertificateFile "conf/ssl.crt/server.crt"
    SSLCertificateKeyFile "conf/ssl.key/server.key"
    ```
-3. U fajlu `httpd-vhosts.conf` dodaj sledeću konfiguraciju:
+3. U `httpd-vhosts.conf` dodaj:
    ```apache
    <VirtualHost *:80>
        ServerName localhost
@@ -56,7 +55,7 @@ ssl.key/ -> Privatni ključ (.key)
 
 ## 📜 Description (English)
 
-This repository contains a valid **HTTPS localhost SSL certificate** with a properly set **Subject Alternative Name (SAN)** field, including:
+This repository contains a pre-configured **HTTPS localhost SSL certificate** with a properly set **Subject Alternative Name (SAN)** field, including:
 
 - `localhost`
 - `127.0.0.1`
@@ -64,9 +63,9 @@ This repository contains a valid **HTTPS localhost SSL certificate** with a prop
 Configured and tested for **XAMPP** environment on Windows.
 
 ### ✅ Features
-- Pre-generated `.crt`, `.csr`, and `.key` files ready to use
+- Ready `.crt`, `.csr`, and `.key` files
 - Compatible with modern browsers (Chrome, Firefox, Edge…)
-- Stable local HTTPS connection for development
+- No insecure connection warnings on `https://localhost`
 
 ### 📂 File Structure
 ssl.crt/ -> Certificate (.crt)  
@@ -80,7 +79,7 @@ ssl.key/ -> Private key (.key)
    SSLCertificateFile "conf/ssl.crt/server.crt"
    SSLCertificateKeyFile "conf/ssl.key/server.key"
    ```
-3. In `httpd-vhosts.conf` add the following configuration:
+3. In `httpd-vhosts.conf` add:
    ```apache
    <VirtualHost *:80>
        ServerName localhost
@@ -101,4 +100,7 @@ ssl.key/ -> Private key (.key)
 4. Restart Apache from XAMPP Control Panel
 5. Open `https://localhost`
 
+---
 
+**📌 Topics (GitHub Tags):**  
+xampp, apache, ssl, https, localhost, san, certificate, development, webdev, php
